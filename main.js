@@ -8,10 +8,10 @@ var additem = document.getElementById('additem');
 additem.innerHTML = '<b><h2  class="title">Add Items</h2></b>';
 additem.style.color = 'green';
 
-var items = document.getElementsByClassName('list-group-item');
 
-items[2].style.backgroundColor = 'green'
+var li = document.getElementsByTagName('li');
 
 for(let i=0; i<items.length; i++){
-    items[i].style.fontWeight = 'bold';
+    li[i].style.fontWeight = 'bold';
 }
+
