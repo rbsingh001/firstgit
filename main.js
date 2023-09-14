@@ -4,14 +4,18 @@ var header = document.getElementById('main-header');
 
 header.style.border = 'solid 2px black';
 
-var additem = document.getElementById('additem');
-additem.innerHTML = '<b><h2  class="title">Add Items</h2></b>';
-additem.style.color = 'green';
+
+var items = document.querySelectorAll('li');
+
+items[1].style.backgroundColor = 'green';
+items[1].style.color = 'green';
+items[2].style.visibility = 'hidden';
 
 
-var li = document.getElementsByTagName('li');
+var odd = document.querySelectorAll('li:nth-child(odd)');
 
-for(let i=0; i<items.length; i++){
-    li[i].style.fontWeight = 'bold';
+for(let i=0; i < odd.length; i++){
+    
+    odd[i].style.backgroundColor ='green';
 }
 
