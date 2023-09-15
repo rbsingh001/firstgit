@@ -18,5 +18,6 @@ var container = document.querySelector('header .container');
 var h1 = document.querySelector('header h1');
 
 newDiv.style.fontSize = '30px';
-container.insertBefore(newDiv , h1);
+// itemList.insertBefore(newDiv , itemList.firstElementChild);
+// above line is to add hello world at the first position in the list 
 
