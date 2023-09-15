@@ -1,23 +1,38 @@
-var itemList = document.querySelector('#items');
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
 
-itemList.parentElement.style.backgroundColor = "gray";
+form.addEventListener('submit' , addItem);
 
-itemList.firstElementChild.style.backgroundColor = "blue";
-itemList.lastElementChild.style.backgroundColor = "yellow";
+itemList.addEventListener('click' , removeItem);
 
-var newDiv = document.createElement('div');
-newDiv.className = "hello";
-newDiv.id = 'hello1';
-newDiv.setAttribute('title' , 'Hello World');
+function addItem(e){
+    e.preventDefault();
 
-var newDivText = document.createTextNode('Hello World');
+    var newItem = document.getElementById('item').value;
 
-newDiv.appendChild(newDivText);
+    var li = document.createElement('li');
+    li.className = 'list-group-item';
 
-var container = document.querySelector('header .container');
-var h1 = document.querySelector('header h1');
+    li.appendChild(document.createTextNode(newItem));
 
-newDiv.style.fontSize = '30px';
-// itemList.insertBefore(newDiv , itemList.firstElementChild);
-// above line is to add hello world at the first position in the list 
+    var del = document.createElement('button');
+    del.className = 'btn btn-danger btn-sm float-right delete';
 
+    del.appendChild(document.createTextNode('X'));
+
+    var edit = document.createElement('button');
+    edit.appendChild(document.createTextNode('Edit'));
+
+    li.appendChild(del);
+    li.appendChild(edit);
+    itemList.appendChild(li);
+
+}
+function removeItem(e){
+    if(e.target.classList.contains('delete')){
+        if(confirm('Are You Sure?')){
+            var li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
+    }
+}
