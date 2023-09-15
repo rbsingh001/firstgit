@@ -1,21 +1,21 @@
-var headerTitle = document.getElementById('header-title');
+var itemList = document.querySelector('#items');
 
-var header = document.getElementById('main-header');
+itemList.parentElement.style.backgroundColor = "gray";
 
-header.style.border = 'solid 2px black';
+itemList.firstElementChild.style.backgroundColor = "blue";
+itemList.lastElementChild.style.backgroundColor = "yellow";
 
+var newDiv = document.createElement('div');
+newDiv.className = "hello";
+newDiv.id = 'hello1';
+newDiv.setAttribute('title' , 'Hello World');
 
-var items = document.querySelectorAll('li');
+var newDivText = document.createTextNode('Hello World');
 
-items[1].style.backgroundColor = 'green';
-items[1].style.color = 'green';
-items[2].style.visibility = 'hidden';
+newDiv.appendChild(newDivText);
 
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
 
-var odd = document.querySelectorAll('li:nth-child(odd)');
-
-for(let i=0; i < odd.length; i++){
-    
-    odd[i].style.backgroundColor ='green';
-}
-
+newDiv.style.fontSize = '30px';
+container.insertBefore(newDiv , h1);
